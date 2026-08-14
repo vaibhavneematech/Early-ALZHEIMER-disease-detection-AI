@@ -3,7 +3,7 @@ A Complete Guide: From Data Preparation to Deployment
 
 This guide outlines the process of training a high-performance Deep Learning model (EfficientNet-B0) to detect Alzheimer's disease from MRI scans and deploying it as a live web application.
 
-1. Environment Setup & Data Preparation
+## 1. Environment Setup & Data Preparation
 First, we mount Google Drive to access the dataset and copy it to the local Colab environment for faster training speeds.
 
 ```
@@ -23,7 +23,7 @@ print(" Data successfully copied to Colab runtime!")
 ```
 
 
-2. Define Custom Dataset Class
+## 2. Define Custom Dataset Class
 We define a custom PyTorch Dataset class to handle image loading, label encoding, and transformations
 
 ```
@@ -67,7 +67,7 @@ class MRIDataset(Dataset):
             img = self.transform(img)
         return img, torch.tensor(self.labels[idx], dtype=torch.long)
 ```
-3. Data Augmentation & Loaders
+## 3. Data Augmentation & Loaders
 We apply data augmentation techniques (rotation, flips, color jitter) to improve model generalization.
 Prepares the data for training and testing the model.
  ```
@@ -90,7 +90,7 @@ test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
 print("\n Data Loaders Ready!")
 ```
-4. Initialize EfficientNet-B0 Model
+## 4. Initialize EfficientNet-B0 Model
 We use Transfer Learning with timm to load a pre-trained EfficientNet-B0 model
 ```
  !pip install timm -q
@@ -111,7 +111,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.0003)  # Low LR for fine-tuning
 
 print(f" EfficientNet-B0 loaded on {device}! Ready for training.")
 ```
-5. Model Training Loop
+## 5. Model Training Loop
 Train the model for 5 epochs and monitor the loss.
 ```
 print("\n STARTING TRAINING (EfficientNet-B0 - 5 EPOCHS)...")
@@ -141,7 +141,7 @@ print("\n TRAINING COMPLETE!")
 ```
 <img width="339" height="445" alt="image" src="https://github.com/user-attachments/assets/4947c79c-8e6f-4e02-8959-e7a559cab9b1" />
 
-6. Evaluation & Saving
+## 6. Evaluation & Saving
 Evaluate the model on the test set and save the weights for deployment
 Evaluates the trained EfficientNet-B0 model on the test dataset and calculates final accuracy
 ```
@@ -183,9 +183,10 @@ torch.save(model.state_dict(), '/content/efficientnet_b0_final.pth')
 - Trained on Kaggle's Alzheimer's MRI dataset (link it if you have it)
 ```
   
-7. Deployment (Streamlit + Ngrok)
+## 7. Deployment (Streamlit + Ngrok)
 Create a web interface and expose it publicly using Ngrok.
-Step 7.1: Create the App File
+
+## Step 7.1: Create the App File
 ```
 %%writefile /content/app.py
 import streamlit as st
@@ -246,7 +247,7 @@ if uploaded:
     st.markdown("#### Detailed Probability Distribution")
     st.bar_chart({c: float(pred[j]) for j, c in enumerate(classes)})
 ```
-Step 7.2: Launch the Server
+## Step 7.2: Launch the Server
 ```
 # 1. Install Dependencies
 !pip install pyngrok streamlit -q
