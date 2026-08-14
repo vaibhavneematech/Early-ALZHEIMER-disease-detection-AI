@@ -176,9 +176,15 @@ torch.save(model.state_dict(), '/content/efficientnet_b0_final.pth')
 "/content/drive/MyDrive/Alzheimer_MVP/"
  print(" MODEL SAVED PERMANENTLY!")
 ```
+## Results
+```
+- Final test accuracy: **[X]%** (EfficientNet-B0, 5 epochs)
+- Classes: No Impairment, Very Mild, Mild, Moderate
+- Trained on Kaggle's Alzheimer's MRI dataset (link it if you have it)
+```
+  
 7. Deployment (Streamlit + Ngrok)
 Create a web interface and expose it publicly using Ngrok.
-
 Step 7.1: Create the App File
 ```
 %%writefile /content/app.py
