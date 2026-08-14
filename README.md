@@ -249,8 +249,8 @@ Step 7.2: Launch the Server
 from pyngrok import ngrok
 import time
 
-# REPLACE WITH YOUR TOKEN
-NGROK_TOKEN = "PASTE_YOUR_NGROK_TOKEN_HERE" 
+# Replace with your own ngrok auth token (get one free at ngrok.com)
+NGROK_TOKEN = "YOUR_NGROK_TOKEN_HERE"
 ngrok.set_auth_token(NGROK_TOKEN)
 
 # 3. Clean up old processes
