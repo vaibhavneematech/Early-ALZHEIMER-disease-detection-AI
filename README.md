@@ -1,4 +1,5 @@
-Alzheimer's Disease Detection using EfficientNet-B0
+## Alzheimer's Disease Detection using EfficientNet-B0
+
 A Complete Guide: From Data Preparation to Deployment
 
 This guide outlines the process of training a high-performance Deep Learning model (EfficientNet-B0) to detect Alzheimer's disease from MRI scans and deploying it as a live web application.
