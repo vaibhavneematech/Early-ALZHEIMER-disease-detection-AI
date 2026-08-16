@@ -220,7 +220,7 @@ classes = ['Mild Impairment', 'Moderate Impairment', 'No Impairment', 'Very Mild
 
 # --- UI Layout ---
 st.title(" Alzheimer's MRI Analysis AI")
-st.markdown("### Powered by EfficientNet-B0 • 98%+ Accuracy")
+st.markdown("### Powered by EfficientNet-B0 • 85%+ Accuracy")
 st.write("Upload an MRI scan to detect early signs of Alzheimer's disease.")
 
 uploaded = st.file_uploader("Upload MRI Image", type=['jpg', 'jpeg', 'png'])
